@@ -6,7 +6,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Vue-插件 - chao.fan blog</title>
+  <title>Vue插件 - chao.fan blog</title>
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="google" content="notranslate" />
@@ -145,7 +145,7 @@
       
       
     </div>
-    <div class="center">Vue-插件</div>
+    <div class="center">Vue插件</div>
     <div class="right">
       <i class="iconfont iconmenu j-navbar-menu"></i>
     </div>
@@ -189,11 +189,11 @@
     <section class="head">
   <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
   <div class="head-mask">
-    <h1 class="head-title">Vue-插件</h1>
+    <h1 class="head-title">Vue插件</h1>
     <div class="head-info">
       <span class="post-info-item"><i class="iconfont iconcalendar"></i>July 26, 2021</span>
       
-      <span class="post-info-item"><i class="iconfont iconfont-size"></i>1217</span>
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>1214</span>
     </div>
   </div>
 </section>
@@ -203,8 +203,7 @@
 <p>预期用途:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;<br>  <span class="hljs-attr">data</span>: &#123; <span class="hljs-attr">foo</span>: <span class="hljs-number">10</span> &#125;,<br>  <span class="hljs-attr">rules</span>: &#123;<br>    <span class="hljs-attr">foo</span>: &#123;<br>      <span class="hljs-attr">validate</span>: <span class="hljs-function"><span class="hljs-params">value</span> =&gt;</span> value &gt; <span class="hljs-number">1</span>,<br>      <span class="hljs-attr">message</span>: <span class="hljs-string">&#x27;foo must be greater than one&#x27;</span><br>    &#125;<br>  &#125;<br>&#125;)<br><br>vm.foo = <span class="hljs-number">0</span> <span class="hljs-comment">// should log: &quot;foo must be greater than one&quot;</span><br></code></pre></td></tr></table></figure>
 
-<p>##提示</p>
-<ol>
+<h2 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h2><ol>
 <li>插件应该安装一个全局mixin</li>
 <li>全局mixin包含一个“created”钩子</li>
 <li>在钩子中，检查’ this.$options.rules’</li>
@@ -251,7 +250,7 @@
           
   <aside class="toc-wrap">
     <h3 class="toc-title">文章目录：</h3>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Vue%E7%AE%80%E5%8D%95%E6%8F%92%E4%BB%B6"><span class="toc-text">Vue简单插件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E6%A0%87"><span class="toc-text">目标</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Vue%E7%AE%80%E5%8D%95%E6%8F%92%E4%BB%B6"><span class="toc-text">Vue简单插件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E6%A0%87"><span class="toc-text">目标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%90%E7%A4%BA"><span class="toc-text">提示</span></a></li></ol></li></ol>
   </aside>
 
         
