@@ -11,8 +11,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="google" content="notranslate" />
   
-  <meta name="description" content="响应式
-const obj = &#123; foo:...">
+  <meta name="description" content="响应式1.1 getter和setter目标实现一个c...">
   <meta name="author" content="FanChao">
   <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
   <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
@@ -44,7 +43,7 @@ const obj = &#123; foo:...">
       
         
         
-<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/xcode.min.css" name="highlight-style" mode="light">
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/vs2015.min.css" name="highlight-style" mode="light">
 
       
         
@@ -194,57 +193,49 @@ const obj = &#123; foo:...">
     <div class="head-info">
       <span class="post-info-item"><i class="iconfont iconcalendar"></i>July 23, 2021</span>
       
-      <span class="post-info-item"><i class="iconfont iconfont-size"></i>470</span>
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>4217</span>
     </div>
   </div>
 </section>
     <section class="main">
       <section class="content">
-        <h3 id="响应式"><a href="#响应式" class="headerlink" title="响应式"></a>响应式</h3><pre><code>
-const obj = &#123; foo: 123 &#125;
-convert(obj)
+        <h1 id="响应式"><a href="#响应式" class="headerlink" title="响应式"></a>响应式</h1><h2 id="1-1-getter和setter"><a href="#1-1-getter和setter" class="headerlink" title="1.1 getter和setter"></a>1.1 getter和setter</h2><h3 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h3><p>实现一个convert函数:</p>
+<ul>
+<li>接受一个Object作为参数</li>
+<li>将对象的属性就地转换为getter/setter Object.defineProperty (<a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty</a>)</li>
+<li>转换后的对象应该保持原来的行为，但同时记录所有get/set操作。</li>
+</ul>
+<p>预期用途:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> obj = &#123; <span class="hljs-attr">foo</span>: <span class="hljs-number">123</span> &#125;<br>convert(obj)<br><br>obj.foo <span class="hljs-comment">// should log: &#x27;getting key &quot;foo&quot;: 123&#x27;</span><br>obj.foo = <span class="hljs-number">234</span> <span class="hljs-comment">// should log: &#x27;setting key &quot;foo&quot; to: 234&#x27;</span><br>obj.foo <span class="hljs-comment">// should log: &#x27;getting key &quot;foo&quot;: 234&#x27;</span><br></code></pre></td></tr></table></figure>
 
-obj.foo // should log: 'getting key "foo": 123'
-obj.foo = 234 // should log: 'setting key "foo" to: 234'
-obj.foo // should log: 'getting key "foo": 234'
-</code></pre>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123; <span class="attr">foo</span>: <span class="number">123</span> &#125;</span><br><span class="line">convert(obj)</span><br><span class="line"></span><br><span class="line">obj.foo <span class="comment">// should log: &#x27;getting key &quot;foo&quot;: 123&#x27;</span></span><br><span class="line">obj.foo = <span class="number">234</span> <span class="comment">// should log: &#x27;setting key &quot;foo&quot; to: 234&#x27;</span></span><br><span class="line">obj.foo <span class="comment">// should log: &#x27;getting key &quot;foo&quot;: 234&#x27;</span></span><br></pre></td></tr></table></figure>
-<!-- 
-```js
-function isObject (obj) {
-  return typeof obj === 'object'
-    && !Array.isArray(obj)
-    && obj !== null
-    && obj !== undefined  
-}
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">isObject</span> (<span class="hljs-params">obj</span>) </span>&#123;<br>  <span class="hljs-keyword">return</span> <span class="hljs-keyword">typeof</span> obj === <span class="hljs-string">&#x27;object&#x27;</span><br>    &amp;&amp; !<span class="hljs-built_in">Array</span>.isArray(obj)<br>    &amp;&amp; obj !== <span class="hljs-literal">null</span><br>    &amp;&amp; obj !== <span class="hljs-literal">undefined</span>  <br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">convert</span> (<span class="hljs-params">obj</span>) </span>&#123;<br>  <span class="hljs-keyword">if</span> (!isObject(obj)) &#123;<br>    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">TypeError</span>()<br>  &#125;<br><br>  <span class="hljs-built_in">Object</span>.keys(obj).forEach(<span class="hljs-function"><span class="hljs-params">key</span> =&gt;</span> &#123;<br>    <span class="hljs-keyword">let</span> internalValue = obj[key]<br>    <span class="hljs-built_in">Object</span>.defineProperty(obj, key, &#123;<br>      get () &#123;<br>        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`getting key &quot;<span class="hljs-subst">$&#123;key&#125;</span>&quot;: <span class="hljs-subst">$&#123;internalValue&#125;</span>`</span>)<br>        <span class="hljs-keyword">return</span> internalValue<br>      &#125;,<br>      set (newValue) &#123;<br>        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`setting key &quot;<span class="hljs-subst">$&#123;key&#125;</span>&quot; to: <span class="hljs-subst">$&#123;newValue&#125;</span>`</span>)<br>        internalValue = newValue<br>      &#125;<br>    &#125;)<br>  &#125;)<br>&#125;<br></code></pre></td></tr></table></figure>
 
-function convert (obj) {
-  if (!isObject(obj)) {
-    throw new TypeError()
-  }
+<h2 id="1-2-依赖关系跟踪"><a href="#1-2-依赖关系跟踪" class="headerlink" title="1.2 依赖关系跟踪"></a>1.2 依赖关系跟踪</h2><h3 id="目标-1"><a href="#目标-1" class="headerlink" title="目标"></a>目标</h3><ul>
+<li>创建一个有两个方法的“Dep”类:“depend”和“notify”。</li>
+<li>创建一个’autorun’函数，接受一个updater函数。</li>
+<li>在updater函数中，你可以通过调用’dep.depend()’ 来显式依赖’Dep’的一个实例</li>
+<li>稍后，您可以通过调用’dep.notify()’来触发updater函数再次运行。</li>
+</ul>
+<p>完整的用法应该像这样:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> dep = <span class="hljs-keyword">new</span> Dep()<br><br>autorun(<span class="hljs-function">() =&gt;</span> &#123;<br>  dep.depend()<br>  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;updated&#x27;</span>)<br>&#125;)<br><span class="hljs-comment">// should log: &quot;updated&quot;</span><br><br>dep.notify()<br><span class="hljs-comment">// should log: &quot;updated&quot;</span><br></code></pre></td></tr></table></figure>
 
-  Object.keys(obj).forEach(key => {
-    let internalValue = obj[key]
-    Object.defineProperty(obj, key, {
-      get () {
-        console.log(`getting key "${key}": ${internalValue}`)
-        return internalValue
-      },
-      set (newValue) {
-        console.log(`setting key "${key}" to: ${newValue}`)
-        internalValue = newValue
-      }
-    })
-  })
-}
-``` -->
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// a class representing a dependency</span><br><span class="hljs-comment">// exposing it on window is necessary for testing</span><br><span class="hljs-built_in">window</span>.Dep = <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Dep</span> </span>&#123;<br>    <span class="hljs-title">constructor</span> (<span class="hljs-params"></span>) &#123;<br>      <span class="hljs-built_in">this</span>.subscribers = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Set</span>()<br>    &#125;<br><br>    depend () &#123;<br>      <span class="hljs-keyword">if</span> (activeUpdate) &#123;<br>        <span class="hljs-comment">// register the current active update as a subscriber</span><br>        <span class="hljs-built_in">this</span>.subscribers.add(activeUpdate)<br>      &#125;<br>    &#125;<br><br>    notify () &#123;<br>      <span class="hljs-comment">// run all subscriber functions</span><br>      <span class="hljs-built_in">this</span>.subscribers.forEach(<span class="hljs-function"><span class="hljs-params">subscriber</span> =&gt;</span> subscriber())<br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">let</span> activeUpdate<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">autorun</span> (<span class="hljs-params">update</span>) </span>&#123;<br>  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">wrappedUpdate</span> (<span class="hljs-params"></span>) </span>&#123;<br>    activeUpdate = wrappedUpdate<br>    update()<br>    activeUpdate = <span class="hljs-literal">null</span><br>  &#125;<br>  wrappedUpdate()<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="1-3-迷你观察者"><a href="#1-3-迷你观察者" class="headerlink" title="1.3 迷你观察者"></a>1.3 迷你观察者</h2><h3 id="目标-2"><a href="#目标-2" class="headerlink" title="目标"></a>目标</h3><p>结合前面两个函数，将’convert()’重命名为’observe()’并保留’autorun()’:</p>
+<ul>
+<li>‘observe()’转换接收对象的属性并使其响应,对于每个转换后的属性，它会被分配一个’Dep’实例，该实例跟踪订阅更新函数的列表，并在调用其setter时触发它们重新运行。</li>
+<li>‘autorun()’接受一个更新函数，并在更新函数订阅的属性发生变化时重新运行它。如果更新函数在求值期间依赖于某个属性，则该更新函数被称为“订阅”该属性。<br>它们应该支持以下用法:</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> state = &#123;<br>  <span class="hljs-attr">count</span>: <span class="hljs-number">0</span><br>&#125;<br><br>observe(state)<br><br>autorun(<span class="hljs-function">() =&gt;</span> &#123;<br>  <span class="hljs-built_in">console</span>.log(state.count)<br>&#125;)<br><span class="hljs-comment">// should immediately log &quot;count is: 0&quot;</span><br><br>state.count++<br><span class="hljs-comment">// should log &quot;count is: 1&quot;</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">isObject</span> (<span class="hljs-params">obj</span>) </span>&#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">typeof</span> obj === <span class="hljs-string">&#x27;object&#x27;</span><br>      &amp;&amp; !<span class="hljs-built_in">Array</span>.isArray(obj)<br>      &amp;&amp; obj !== <span class="hljs-literal">null</span><br>      &amp;&amp; obj !== <span class="hljs-literal">undefined</span><br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">observe</span> (<span class="hljs-params">obj</span>) </span>&#123;<br>  <span class="hljs-keyword">if</span> (!isObject(obj)) &#123;<br>    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">TypeError</span>()<br>  &#125;<br><br>  <span class="hljs-built_in">Object</span>.keys(obj).forEach(<span class="hljs-function"><span class="hljs-params">key</span> =&gt;</span> &#123;<br>    <span class="hljs-keyword">let</span> internalValue = obj[key]<br>    <span class="hljs-keyword">let</span> dep = <span class="hljs-keyword">new</span> Dep()<br>    <span class="hljs-built_in">Object</span>.defineProperty(obj, key, &#123;<br>      get () &#123;<br>        dep.depend()<br>        <span class="hljs-keyword">return</span> internalValue<br>      &#125;,<br>      set (newValue) &#123;<br>        <span class="hljs-keyword">const</span> isChanged = internalValue !== newValue<br>        <span class="hljs-keyword">if</span> (isChanged) &#123;<br>          internalValue = newValue<br>          dep.notify()<br>        &#125;<br>      &#125;<br>    &#125;)<br>  &#125;)<br>&#125;<br><br><span class="hljs-built_in">window</span>.Dep = <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Dep</span> </span>&#123;<br>  <span class="hljs-title">constructor</span> (<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-built_in">this</span>.subscribers = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Set</span>()<br>  &#125;<br><br>  depend () &#123;<br>    <span class="hljs-keyword">if</span> (activeUpdate) &#123;<br>      <span class="hljs-comment">// register the current active update as a subscriber</span><br>      <span class="hljs-built_in">this</span>.subscribers.add(activeUpdate)<br>    &#125;<br>  &#125;<br><br>  notify () &#123;<br>    <span class="hljs-comment">// run all subscriber functions</span><br>    <span class="hljs-built_in">this</span>.subscribers.forEach(<span class="hljs-function"><span class="hljs-params">subscriber</span> =&gt;</span> subscriber())<br>  &#125;<br>&#125;<br><br><span class="hljs-keyword">let</span> activeUpdate<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">autorun</span> (<span class="hljs-params">update</span>) </span>&#123;<br>  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">wrappedUpdate</span> (<span class="hljs-params"></span>) </span>&#123;<br>    activeUpdate = wrappedUpdate<br>    update()<br>    activeUpdate = <span class="hljs-literal">null</span><br>  &#125;<br>  wrappedUpdate()<br>&#125;<br></code></pre></td></tr></table></figure>
       </section>
       <section class="extra">
         
           <ul class="copyright">
   
     <li><strong>本文作者：</strong>FanChao</li>
-    <li><strong>本文链接：</strong><a href="http://example.com/2021/07/23/Vue/index.html" title="http:&#x2F;&#x2F;example.com&#x2F;2021&#x2F;07&#x2F;23&#x2F;Vue&#x2F;index.html">http:&#x2F;&#x2F;example.com&#x2F;2021&#x2F;07&#x2F;23&#x2F;Vue&#x2F;index.html</a></li>
+    <li><strong>本文链接：</strong><a href="https://fanchaot.github.io/2021/07/23/Vue/index.html" title="https:&#x2F;&#x2F;fanchaot.github.io&#x2F;2021&#x2F;07&#x2F;23&#x2F;Vue&#x2F;index.html">https:&#x2F;&#x2F;fanchaot.github.io&#x2F;2021&#x2F;07&#x2F;23&#x2F;Vue&#x2F;index.html</a></li>
     <li><strong>版权声明：</strong>本博客所有文章均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" title="BY-NC-SA" target="_blank" rel="noopener">BY-NC-SA</a> 许可协议，转载请注明出处！</li>
   
 </ul>
@@ -279,7 +270,7 @@ function convert (obj) {
           
   <aside class="toc-wrap">
     <h3 class="toc-title">文章目录：</h3>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%93%8D%E5%BA%94%E5%BC%8F"><span class="toc-text">响应式</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%93%8D%E5%BA%94%E5%BC%8F"><span class="toc-text">响应式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-getter%E5%92%8Csetter"><span class="toc-text">1.1 getter和setter</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%AE%E6%A0%87"><span class="toc-text">目标</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-%E4%BE%9D%E8%B5%96%E5%85%B3%E7%B3%BB%E8%B7%9F%E8%B8%AA"><span class="toc-text">1.2 依赖关系跟踪</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%AE%E6%A0%87-1"><span class="toc-text">目标</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-%E8%BF%B7%E4%BD%A0%E8%A7%82%E5%AF%9F%E8%80%85"><span class="toc-text">1.3 迷你观察者</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%AE%E6%A0%87-2"><span class="toc-text">目标</span></a></li></ol></li></ol></li></ol>
   </aside>
 
         
