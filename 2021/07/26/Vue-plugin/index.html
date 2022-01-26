@@ -28,7 +28,7 @@
 
   
     
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1445822_r673sha78lq.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1445822_p6ry5n7lrr.css">
 
   
 
@@ -60,10 +60,17 @@
       isHome: false,
       fancybox: true,
       pjax: false,
+      loading: {
+        gif: '/images/theme/loading.gif',
+        lottie: ''
+      },
       lazyload: {
         enable: true,
         only_post: 'false',
-        loading: '[object Object]'
+        loading: {
+          gif: '/images/theme/loading.gif',
+          lottie: ''
+        }
       },
       donate: {
         enable: true,
@@ -127,7 +134,7 @@
 <meta name="generator" content="Hexo 5.4.0"></head>
 
 <body class="lock-screen">
-  <div class="loading"></div>
+  <div class="loading" id="loading"></div>
   
     
 
@@ -187,7 +194,7 @@
       <div class="col-xl-6"><article class="article">
   <div class="wrap">
     <section class="head">
-  <img   class="lazyload" data-original="/images/post-3.jpeg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <img   class="lazyload" data-original="/images/longzhu-1.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
   <div class="head-mask">
     <h1 class="head-title">Vue插件</h1>
     <div class="head-info">
@@ -199,6 +206,7 @@
 </section>
     <section class="main">
       <section class="content">
+        
         <h1 id="Vue简单插件"><a href="#Vue简单插件" class="headerlink" title="Vue简单插件"></a>Vue简单插件</h1><h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><p>创建一个插件，教导Vue组件处理自定义的“规则”<br>选择“rules”选项需要一个指定验证规则的对象<br>用于组件中的数据。</p>
 <p>预期用途:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;<br>  <span class="hljs-attr">data</span>: &#123; <span class="hljs-attr">foo</span>: <span class="hljs-number">10</span> &#125;,<br>  <span class="hljs-attr">rules</span>: &#123;<br>    <span class="hljs-attr">foo</span>: &#123;<br>      <span class="hljs-attr">validate</span>: <span class="hljs-function"><span class="hljs-params">value</span> =&gt;</span> value &gt; <span class="hljs-number">1</span>,<br>      <span class="hljs-attr">message</span>: <span class="hljs-string">&#x27;foo must be greater than one&#x27;</span><br>    &#125;<br>  &#125;<br>&#125;)<br><br>vm.foo = <span class="hljs-number">0</span> <span class="hljs-comment">// should log: &quot;foo must be greater than one&quot;</span><br></code></pre></td></tr></table></figure>
@@ -333,6 +341,7 @@
   </div>
   
   
+  
   <div class="fab fab-up">
     <i class="iconfont iconcaret-up"></i>
   </div>
@@ -347,6 +356,8 @@
 </body>
 
 <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+
 
 
 

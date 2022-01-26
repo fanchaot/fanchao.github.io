@@ -1,0 +1,412 @@
+
+
+<!DOCTYPE html>
+<html lang="zh" color-mode=light>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>数据转换 - chao.fan blog</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate" />
+  
+  <meta name="description" content="特定数据 转换
+1234567891011121314...">
+  <meta name="author" content="FanChao">
+  <link rel="icon" href="/images/icons/logo2xx.png" type="image/png" sizes="16x16">
+  <link rel="icon" href="/images/icons/logo2xx.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/images/icons/logo2xx.png" sizes="180x180">
+  <meta rel="mask-icon" href="/images/icons/logo2xx.svg" color="#333333">
+  
+    <meta rel="msapplication-TileImage" content="/images/icons/logo2xx.png">
+    <meta rel="msapplication-TileColor" content="#000000">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+    
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1445822_p6ry5n7lrr.css">
+
+  
+
+  
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  
+
+  
+    
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/vs2015.min.css" name="highlight-style" mode="light">
+
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/solarized-dark.min.css" name="highlight-style" mode="dark">
+
+      
+  
+
+  <script>
+    var CONFIG = window.CONFIG || {};
+    var ZHAOO = window.ZHAOO || {};
+    CONFIG = {
+      isHome: false,
+      fancybox: true,
+      pjax: false,
+      loading: {
+        gif: '/images/theme/loading.gif',
+        lottie: ''
+      },
+      lazyload: {
+        enable: true,
+        only_post: 'false',
+        loading: {
+          gif: '/images/theme/loading.gif',
+          lottie: ''
+        }
+      },
+      donate: {
+        enable: true,
+        alipay: '/images/icons/alipay.jpg',
+        wechat: '/images/icons/wechat.jpg'
+      },
+      galleries: {
+        enable: true
+      },
+      fab: {
+        enable: true,
+        always_show: false
+      },
+      carrier: {
+        enable: true
+      },
+      daovoice: {
+        enable: false
+      },
+      preview: {
+        background: {
+          default: '',
+          api: 'https://source.unsplash.com/random/1920x1080'
+        },
+        motto: {
+          default: '我在开了灯的床头下，想问问自己的心啊。',
+          typing: true,
+          api: 'https://v1.hitokoto.cn/?encode=text&c=d',
+          data_contents: ''
+        },
+      },
+      qrcode: {
+        enable: true,
+        type: 'url',
+        image: 'https://pic.izhaoo.com/weapp-code.jpg',
+      },
+      toc: {
+        enable: true
+      },
+      scrollbar: {
+        type: 'default'
+      },
+      notification: {
+        enable: false,
+        delay: 4500,
+        list: '',
+        page_white_list: '',
+        page_black_list: ''
+      },
+      search: {
+        enable: false,
+        path: ''
+      }
+    }
+  </script>
+
+  
+
+  
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="lock-screen">
+  <div class="loading" id="loading"></div>
+  
+    
+
+
+  <nav class="navbar">
+    <div class="left">
+      
+        <i class="iconfont iconhome j-navbar-back-home"></i>
+      
+      
+        <i class="iconfont iconqrcode j-navbar-qrcode"></i>
+      
+      
+        <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
+      
+      
+    </div>
+    <div class="center">数据转换</div>
+    <div class="right">
+      <i class="iconfont iconmenu j-navbar-menu"></i>
+    </div>
+    
+      <div id="qrcode-navbar"></div>
+    
+  </nav>
+
+  
+  
+
+<nav class="menu">
+  <div class="menu-container">
+    <div class="menu-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <ul class="menu-content"><li class="menu-item">
+        <a href="/ " class="underline "> 首页</a>
+      </li><li class="menu-item">
+        <a href="/galleries/ " class="underline "> 相册</a>
+      </li><li class="menu-item">
+        <a href="/archives/ " class="underline "> 归档</a>
+      </li><li class="menu-item">
+        <a href="/tags/ " class="underline "> 标签</a>
+      </li><li class="menu-item">
+        <a href="/categories/ " class="underline "> 分类</a>
+      </li><li class="menu-item">
+        <a href="/about/ " class="underline "> 关于</a>
+      </li></ul>
+    
+      <div class="menu-copyright"><p>fanchao</p></div>
+    
+  </div>
+</nav>
+  <main id="main">
+  <div class="article-wrap">
+    <div class="row container">
+      <div class="col-xl-3"></div>
+      <div class="col-xl-6"><article class="article">
+  <div class="wrap">
+    <section class="head">
+  <img   class="lazyload" data-original="/images/longzhu-6.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">数据转换</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>August 23, 2021</span>
+      
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>1862</span>
+    </div>
+  </div>
+</section>
+    <section class="main">
+      <section class="content">
+        
+        <p>特定数据 转换</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><code class="hljs js"><br><span class="hljs-keyword">let</span> p = &#123;<br>  <span class="hljs-string">&quot;y&quot;</span>: [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>],<br>  <span class="hljs-string">&quot;x&quot;</span>: <span class="hljs-number">1</span>,<br>  <span class="hljs-string">&quot;a-b-c-d&quot;</span>: [<span class="hljs-string">&quot;e&quot;</span>],<br>  <span class="hljs-string">&quot;a-a1&quot;</span>: <span class="hljs-number">1</span>,<br>  <span class="hljs-string">&quot;a-a2-b1&quot;</span>: <span class="hljs-number">1</span>,<br>  <span class="hljs-string">&quot;a-a2-b3&quot;</span>: <span class="hljs-number">4</span>,<br>  <span class="hljs-string">&quot;b-b1-b3&quot;</span>: <span class="hljs-number">5</span>,<br>  <span class="hljs-string">&quot;b-b1-b2&quot;</span>: <span class="hljs-number">4</span><br>&#125; <br><br><span class="hljs-comment">// 转成 </span><br><br><span class="hljs-comment">// let p = &#123;</span><br><span class="hljs-comment">//   x: 1,</span><br><span class="hljs-comment">//   y: [1, 2],</span><br><span class="hljs-comment">//   a: &#123;</span><br><span class="hljs-comment">//     a2: &#123;</span><br><span class="hljs-comment">//       ...</span><br><span class="hljs-comment">//     &#125;,</span><br><span class="hljs-comment">//     a1: &#123;...&#125;</span><br><span class="hljs-comment">//   &#125;</span><br><span class="hljs-comment">//   ....</span><br><span class="hljs-comment">// &#125;</span><br><br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 数组反转 转 Object</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@params </span>arr  分割好的key [a, b, c, d]</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@params </span>value p &#x27;a-b-c-d&#x27; 的值</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@return <span class="hljs-type">&#123;a: &#123; b: &#123; c: &#123; d: [&#x27;e&#x27;] &#125;</span> </span>&#125; &#125;&#125;</span><br><span class="hljs-comment"> */</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">handleArr</span>(<span class="hljs-params">arr, value</span>) </span>&#123;<br>  <span class="hljs-keyword">let</span> res = value<br>  arr.reverse().map(<span class="hljs-function"><span class="hljs-params">key</span> =&gt;</span> &#123;<br>    <span class="hljs-keyword">let</span> obj = &#123;&#125;<br>    obj[key] = res<br>    res = obj<br>  &#125;)<br>  <span class="hljs-keyword">return</span> res<br>&#125;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 对象合并</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@params </span>target 目标对象</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@params </span>sources &#123;a: &#123; b: &#123; c: &#123; d: [&#x27;e&#x27;] &#125; &#125; &#125;&#125;</span><br><span class="hljs-comment"> */</span> <br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">assignObj</span>(<span class="hljs-params">target = &#123;&#125;, sources = &#123;&#125;</span>) </span>&#123;<br>  <span class="hljs-keyword">let</span> obj = target<br>  <span class="hljs-built_in">Object</span>.keys(sources).map(<span class="hljs-function"><span class="hljs-params">k</span> =&gt;</span> &#123;<br>    <span class="hljs-comment">// 如果target存在这个k, 递归合并</span><br>    <span class="hljs-keyword">if</span>(target.hasOwnProperty(k)) &#123;<br>      obj[k] = assignObj(target[k], sources[k])<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>      <span class="hljs-comment">// 不存在就直接添加</span><br>      obj[k] = sources[k]<br>    &#125;<br>  &#125;)<br>  <span class="hljs-keyword">return</span> obj<br>&#125;<br><br><span class="hljs-keyword">const</span> params1form = <span class="hljs-function">(<span class="hljs-params">e</span>) =&gt;</span> &#123;<br>  <span class="hljs-keyword">return</span> <span class="hljs-built_in">Object</span>.keys(e)?.reduce(<span class="hljs-function">(<span class="hljs-params">result, current</span>) =&gt;</span> &#123;<br>    <br>    <span class="hljs-comment">// 判断是否有分隔符</span><br>    <span class="hljs-keyword">if</span>(current.indexOf(<span class="hljs-string">&#x27;-&#x27;</span>) !== -<span class="hljs-number">1</span>) &#123;<br><br>      <span class="hljs-comment">// 分割成数组</span><br>      <span class="hljs-keyword">let</span> currentSplit = current.split(<span class="hljs-string">&#x27;-&#x27;</span>)<br><br>      result = assignObj(result, handleArr(currentSplit, e[current]))<br><br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>      <span class="hljs-comment">// 没有说明没有嵌套对象 直接赋值</span><br>      result[current] = e[current]<br>    &#125;<br><br>    <span class="hljs-keyword">return</span> result<br>  &#125;, &#123;&#125;)<br>&#125;<br><br><span class="hljs-built_in">console</span>.log(params1form(p))<br></code></pre></td></tr></table></figure>
+      </section>
+      <section class="extra">
+        
+          <ul class="copyright">
+  
+    <li><strong>本文作者：</strong>FanChao</li>
+    <li><strong>本文链接：</strong><a href="https://fanchaot.github.io/2021/08/23/%E5%AF%B9%E8%B1%A1%E6%95%B0%E6%8D%AE%E8%BD%AC%E6%8D%A2/index.html" title="https:&#x2F;&#x2F;fanchaot.github.io&#x2F;2021&#x2F;08&#x2F;23&#x2F;%E5%AF%B9%E8%B1%A1%E6%95%B0%E6%8D%AE%E8%BD%AC%E6%8D%A2&#x2F;index.html">https:&#x2F;&#x2F;fanchaot.github.io&#x2F;2021&#x2F;08&#x2F;23&#x2F;%E5%AF%B9%E8%B1%A1%E6%95%B0%E6%8D%AE%E8%BD%AC%E6%8D%A2&#x2F;index.html</a></li>
+    <li><strong>版权声明：</strong>本博客所有文章均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" title="BY-NC-SA" target="_blank" rel="noopener">BY-NC-SA</a> 许可协议，转载请注明出处！</li>
+  
+</ul>
+        
+        
+          <section class="donate">
+  <div id="qrcode-donate">
+    <img   class="lazyload" data-original="/images/icons/alipay.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" >
+  </div>
+  <div class="icon">
+    <a href="javascript:;" id="alipay"><i class="iconfont iconalipay"></i></a>
+    <a href="javascript:;" id="wechat"><i class="iconfont iconwechat-fill"></i></a>
+  </div>
+</section>
+        
+        
+  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E4%BD%9C/" rel="tag">工作</a></li></ul> 
+
+        
+  <nav class="nav">
+    <a href="/2021/08/23/%E5%AF%B9%E6%92%9E%E6%8C%87%E9%92%88/"><i class="iconfont iconleft"></i>对撞指针</a>
+    <a href="/2021/07/26/Vue-router/">Vue router<i class="iconfont iconright"></i></a>
+  </nav>
+
+      </section>
+      
+        <section class="comments">
+  
+    <div class="btn" id="comments-btn">查看评论</div>
+  
+  
+<div id="valine"></div>
+<script defer src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+  window.onload = function () {
+    var loadValine = function () {
+      new Valine({
+        el: '#valine',
+        app_id: "NzN8x2FFAiBw0oNWQ6hTxdAi-gzGzoHsz",
+        app_key: "XJjPn4rjKmfgbQxhVqWGHr9h",
+        placeholder: "雁过留痕",
+        avatar: "mp",
+        pageSize: "10",
+        lang: "zh-CN",
+      });
+    }
+    if ( true ) {
+      $("#comments-btn").on("click", function () {
+        $(this).hide();
+        loadValine();
+      });
+    } else {
+      loadValine();
+    }
+  };
+</script>
+
+</section>
+      
+    </section>
+  </div>
+</article></div>
+      <div class="col-xl-3">
+        
+          
+  <aside class="toc-wrap">
+    <h3 class="toc-title">文章目录：</h3>
+    
+  </aside>
+
+        
+      </div>
+    </div>
+  </div>
+</main>
+  
+
+<footer class="footer">
+  <div class="footer-social"><a 
+        href="tencent://message/?Menu=yes&uin=1104747115 "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#12B7F5'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconQQ "></i>
+      </a><a 
+        href="javascript:; "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#09BB07'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconwechat-fill "></i>
+      </a><a 
+        href="https://github.com/fanchaot "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#9f7be1'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  icongithub-fill "></i>
+      </a><a 
+        href="mailto:17610388360@163.com "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color=#FF3B00" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconmail"></i>
+      </a></div>
+  
+    <div class="footer-copyright"><p>fanchao</p></div>
+  
+</footer>
+  
+      <div class="fab fab-plus">
+    <i class="iconfont iconplus"></i>
+  </div>
+  
+  
+  
+  <div class="fab fab-up">
+    <i class="iconfont iconcaret-up"></i>
+  </div>
+  
+  
+  
+    
+<script src="/js/color-mode.js"></script>
+
+  
+  
+</body>
+
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+
+
+
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+
+
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+
+
+
+
+<script src="/js/utils.js"></script>
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+
+  <script>
+    (function () {
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

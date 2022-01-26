@@ -28,7 +28,7 @@
 
   
     
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1445822_r673sha78lq.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1445822_p6ry5n7lrr.css">
 
   
 
@@ -60,10 +60,17 @@
       isHome: false,
       fancybox: true,
       pjax: false,
+      loading: {
+        gif: '/images/theme/loading.gif',
+        lottie: ''
+      },
       lazyload: {
         enable: true,
         only_post: 'false',
-        loading: '[object Object]'
+        loading: {
+          gif: '/images/theme/loading.gif',
+          lottie: ''
+        }
       },
       donate: {
         enable: true,
@@ -127,7 +134,7 @@
 <meta name="generator" content="Hexo 5.4.0"></head>
 
 <body class="lock-screen">
-  <div class="loading"></div>
+  <div class="loading" id="loading"></div>
   
     
 
@@ -187,7 +194,7 @@
       <div class="col-xl-6"><article class="article">
   <div class="wrap">
     <section class="head">
-  <img   class="lazyload" data-original="/images/longzhu-6.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <img   class="lazyload" data-original="/images/longzhu-3.jpeg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
   <div class="head-mask">
     <h1 class="head-title">Vue vuex</h1>
     <div class="head-info">
@@ -199,6 +206,7 @@
 </section>
     <section class="main">
       <section class="content">
+        
         <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/npm/vue@2&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">counter</span> <span class="hljs-attr">:count</span>=<span class="hljs-string">&quot;count&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">counter</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">counter</span> <span class="hljs-attr">:count</span>=<span class="hljs-string">&quot;count&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">counter</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">counter</span> <span class="hljs-attr">:count</span>=<span class="hljs-string">&quot;count&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">counter</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">&quot;count++&quot;</span>&gt;</span>increment<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript"></span><br><span class="javascript"><span class="hljs-comment">// 要求:一个计数器组件渲染3次</span></span><br><span class="javascript"><span class="hljs-comment">// 组件通过props获取当前计数</span></span><br><span class="javascript"><span class="hljs-comment">// 同时增加所有3个计数器的按钮</span></span><br><span class="javascript"><span class="hljs-keyword">new</span> Vue(&#123;</span><br><span class="javascript">  <span class="hljs-attr">el</span>: <span class="hljs-string">&#x27;#app&#x27;</span>,</span><br><span class="javascript">  <span class="hljs-attr">data</span>: &#123;</span><br><span class="javascript">    <span class="hljs-attr">count</span>: <span class="hljs-number">0</span></span><br><span class="javascript">  &#125;,</span><br><span class="javascript">  <span class="hljs-attr">components</span>: &#123;</span><br><span class="javascript">    <span class="hljs-attr">Counter</span>: &#123;</span><br><span class="javascript">      <span class="hljs-attr">props</span>: &#123;</span><br><span class="javascript">        <span class="hljs-attr">count</span>: <span class="hljs-built_in">Number</span></span><br><span class="javascript">      &#125;,</span><br><span class="javascript">      <span class="hljs-attr">template</span>: <span class="hljs-string">`&lt;div&gt;&#123;&#123; count &#125;&#125;&lt;/div&gt;`</span></span><br><span class="javascript">    &#125;</span><br><span class="javascript">  &#125;</span><br><span class="javascript">&#125;)</span><br><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><br></code></pre></td></tr></table></figure>
 
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/npm/vue@2&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">counter</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">counter</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">counter</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">counter</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">counter</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">counter</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">&quot;inc&quot;</span>&gt;</span>increment<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript"></span><br><span class="javascript"><span class="hljs-comment">// 创建一个计数器组件(不使用任何道具)</span></span><br><span class="javascript"><span class="hljs-comment">// 它的所有实例应该共享相同的计数状态</span></span><br><span class="javascript"><span class="hljs-comment">// 和一个同时增加所有计数器的按钮</span></span><br><span class="javascript"></span><br><span class="javascript"><span class="hljs-keyword">const</span> state = &#123;</span><br><span class="javascript">  <span class="hljs-attr">count</span>: <span class="hljs-number">0</span></span><br><span class="javascript">&#125;</span><br><span class="javascript"></span><br><span class="javascript"><span class="hljs-keyword">const</span> Counter = &#123;</span><br><span class="javascript">  <span class="hljs-comment">// Convert state into reactive object</span></span><br><span class="javascript">  data () &#123;</span><br><span class="javascript">    <span class="hljs-keyword">return</span> state</span><br><span class="javascript">  &#125;,</span><br><span class="javascript">  render (h) &#123;</span><br><span class="javascript">    <span class="hljs-comment">// Proxy the object</span></span><br><span class="javascript">    <span class="hljs-keyword">return</span> h(<span class="hljs-string">&#x27;div&#x27;</span>, <span class="hljs-built_in">this</span>.count)</span><br><span class="javascript">  &#125;</span><br><span class="javascript">&#125;</span><br><span class="javascript"></span><br><span class="javascript"><span class="hljs-keyword">new</span> Vue(&#123;</span><br><span class="javascript">  <span class="hljs-attr">el</span>: <span class="hljs-string">&#x27;#app&#x27;</span>,</span><br><span class="javascript">  <span class="hljs-attr">components</span>: &#123;</span><br><span class="javascript">    Counter</span><br><span class="javascript">  &#125;,</span><br><span class="javascript">  <span class="hljs-attr">methods</span>: &#123;</span><br><span class="javascript">    inc () &#123;</span><br><span class="javascript">      state.count++</span><br><span class="javascript">    &#125;</span><br><span class="javascript">  &#125;</span><br><span class="javascript">&#125;)</span><br><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
@@ -332,6 +340,7 @@
   </div>
   
   
+  
   <div class="fab fab-up">
     <i class="iconfont iconcaret-up"></i>
   </div>
@@ -346,6 +355,8 @@
 </body>
 
 <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+
 
 
 

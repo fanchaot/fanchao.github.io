@@ -28,7 +28,7 @@
 
   
     
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1445822_r673sha78lq.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1445822_p6ry5n7lrr.css">
 
   
 
@@ -60,10 +60,17 @@
       isHome: false,
       fancybox: true,
       pjax: false,
+      loading: {
+        gif: '/images/theme/loading.gif',
+        lottie: ''
+      },
       lazyload: {
         enable: true,
         only_post: 'false',
-        loading: '[object Object]'
+        loading: {
+          gif: '/images/theme/loading.gif',
+          lottie: ''
+        }
       },
       donate: {
         enable: true,
@@ -127,7 +134,7 @@
 <meta name="generator" content="Hexo 5.4.0"></head>
 
 <body class="lock-screen">
-  <div class="loading"></div>
+  <div class="loading" id="loading"></div>
   
     
 
@@ -184,10 +191,10 @@
   <section class="tags">
     <header class="header">
   <h1 class="header-title">标签</h1>
-  <p class="header-subtitle">共: 3 个</p>
+  <p class="header-subtitle">共: 4 个</p>
 </header>
     <div class="tags-container">
-      <a href="/tags/Vue/" style="font-size: 36px; color: #212121">Vue</a> <a href="/tags/javascript/" style="font-size: 14px; color: #666">javascript</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 25px; color: #444">算法</a>
+      <a href="/tags/Vue/" style="font-size: 36px; color: #212121">Vue</a> <a href="/tags/javascript/" style="font-size: 14px; color: #666">javascript</a> <a href="/tags/%E5%B7%A5%E4%BD%9C/" style="font-size: 14px; color: #666">工作</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 25px; color: #444">算法</a>
     </div>
   </section>
 </main>
@@ -233,6 +240,7 @@
   </div>
   
   
+  
   <div class="fab fab-up">
     <i class="iconfont iconcaret-up"></i>
   </div>
@@ -247,6 +255,8 @@
 </body>
 
 <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+
 
 
 

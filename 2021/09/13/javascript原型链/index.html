@@ -28,7 +28,7 @@
 
   
     
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1445822_r673sha78lq.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1445822_p6ry5n7lrr.css">
 
   
 
@@ -60,10 +60,17 @@
       isHome: false,
       fancybox: true,
       pjax: false,
+      loading: {
+        gif: '/images/theme/loading.gif',
+        lottie: ''
+      },
       lazyload: {
         enable: true,
         only_post: 'false',
-        loading: '[object Object]'
+        loading: {
+          gif: '/images/theme/loading.gif',
+          lottie: ''
+        }
       },
       donate: {
         enable: true,
@@ -127,7 +134,7 @@
 <meta name="generator" content="Hexo 5.4.0"></head>
 
 <body class="lock-screen">
-  <div class="loading"></div>
+  <div class="loading" id="loading"></div>
   
     
 
@@ -187,7 +194,7 @@
       <div class="col-xl-6"><article class="article">
   <div class="wrap">
     <section class="head">
-  <img   class="lazyload" data-original="/images/post-9.jpeg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <img   class="lazyload" data-original="/images/post-7.jpeg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
   <div class="head-mask">
     <h1 class="head-title">javascript原型链</h1>
     <div class="head-info">
@@ -199,6 +206,7 @@
 </section>
     <section class="main">
       <section class="content">
+        
         <h1 id="构造函数创建对象"><a href="#构造函数创建对象" class="headerlink" title="构造函数创建对象"></a>构造函数创建对象</h1><h4 id="我们先使用构造函数创建一个对象"><a href="#我们先使用构造函数创建一个对象" class="headerlink" title="我们先使用构造函数创建一个对象"></a>我们先使用构造函数创建一个对象</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Person</span>(<span class="hljs-params"></span>) </span>&#123;&#125;<br><span class="hljs-keyword">var</span> person = <span class="hljs-keyword">new</span> Person();<br>person.name = <span class="hljs-string">&#x27;Kevin&#x27;</span>;<br><span class="hljs-built_in">console</span>.log(person.name) <span class="hljs-comment">// Kevin</span><br></code></pre></td></tr></table></figure>
 
 <p>在这个例子中，Person就是一个构造函数，我们使用new创建了一个实例对象person</p>
@@ -356,6 +364,7 @@
   </div>
   
   
+  
   <div class="fab fab-up">
     <i class="iconfont iconcaret-up"></i>
   </div>
@@ -370,6 +379,8 @@
 </body>
 
 <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+
 
 
 

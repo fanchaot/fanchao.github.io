@@ -28,7 +28,7 @@
 
   
     
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1445822_r673sha78lq.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1445822_p6ry5n7lrr.css">
 
   
 
@@ -60,10 +60,17 @@
       isHome: false,
       fancybox: true,
       pjax: false,
+      loading: {
+        gif: '/images/theme/loading.gif',
+        lottie: ''
+      },
       lazyload: {
         enable: true,
         only_post: 'false',
-        loading: '[object Object]'
+        loading: {
+          gif: '/images/theme/loading.gif',
+          lottie: ''
+        }
       },
       donate: {
         enable: true,
@@ -127,7 +134,7 @@
 <meta name="generator" content="Hexo 5.4.0"></head>
 
 <body class="lock-screen">
-  <div class="loading"></div>
+  <div class="loading" id="loading"></div>
   
     
 
@@ -231,6 +238,7 @@
   </div>
   
   
+  
   <div class="fab fab-up">
     <i class="iconfont iconcaret-up"></i>
   </div>
@@ -245,6 +253,8 @@
 </body>
 
 <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+
 
 
 

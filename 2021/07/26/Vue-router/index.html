@@ -37,7 +37,7 @@ window...">
 
   
     
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1445822_r673sha78lq.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1445822_p6ry5n7lrr.css">
 
   
 
@@ -69,10 +69,17 @@ window...">
       isHome: false,
       fancybox: true,
       pjax: false,
+      loading: {
+        gif: '/images/theme/loading.gif',
+        lottie: ''
+      },
       lazyload: {
         enable: true,
         only_post: 'false',
-        loading: '[object Object]'
+        loading: {
+          gif: '/images/theme/loading.gif',
+          lottie: ''
+        }
       },
       donate: {
         enable: true,
@@ -136,7 +143,7 @@ window...">
 <meta name="generator" content="Hexo 5.4.0"></head>
 
 <body class="lock-screen">
-  <div class="loading"></div>
+  <div class="loading" id="loading"></div>
   
     
 
@@ -196,7 +203,7 @@ window...">
       <div class="col-xl-6"><article class="article">
   <div class="wrap">
     <section class="head">
-  <img   class="lazyload" data-original="/images/longzhu-3.jpeg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <img   class="lazyload" data-original="/images/longzhu-1.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
   <div class="head-mask">
     <h1 class="head-title">Vue router</h1>
     <div class="head-info">
@@ -208,6 +215,7 @@ window...">
 </section>
     <section class="main">
       <section class="content">
+        
         <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 
 <div id="app">
@@ -273,7 +281,7 @@ const app = new Vue({
 
         
   <nav class="nav">
-    <a href="/2021/08/23/%E5%AF%B9%E6%92%9E%E6%8C%87%E9%92%88/"><i class="iconfont iconleft"></i>对撞指针</a>
+    <a href="/2021/08/23/%E5%AF%B9%E8%B1%A1%E6%95%B0%E6%8D%AE%E8%BD%AC%E6%8D%A2/"><i class="iconfont iconleft"></i>数据转换</a>
     <a href="/2021/07/26/Vue-vuex/">Vue vuex<i class="iconfont iconright"></i></a>
   </nav>
 
@@ -370,6 +378,7 @@ const app = new Vue({
   </div>
   
   
+  
   <div class="fab fab-up">
     <i class="iconfont iconcaret-up"></i>
   </div>
@@ -384,6 +393,8 @@ const app = new Vue({
 </body>
 
 <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+
 
 
 
